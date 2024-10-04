@@ -14,18 +14,44 @@ class HashTable {
   }
 
   set(key, value) {
-    let index = this.hash(key);
-    this.table[index] = value;
+    const index = this.hash(key);
+    // this.table[index] = value;
+    const bucket = this.table[index];
+    if (!bucket) {
+      this.table[index] = [[key, value]];
+    } else {
+      const sameKeyItem = bucket.find((item) => item[0] === key);
+      if (sameKeyItem) {
+        sameKeyItem[1] = value;
+      } else {
+        bucket.push([key, value]);
+      }
+    }
   }
 
   get(key) {
-    let index = this.hash(key);
-    return this.table[index];
+    const index = this.hash(key);
+    // return this.table[index];
+    const bucket = this.table[index];
+    if (bucket) {
+      const sameKeyItem = bucket.find((item) => item[0] === key);
+      if (sameKeyItem) {
+        return sameKeyItem[1];
+      }
+    }
+    return undefined;
   }
 
   remove(key) {
-    let index = this.hash(key);
-    this.table[index] = undefined;
+    const index = this.hash(key);
+    // this.table[index] = undefined;
+    const bucket = this.table[index];
+    if (bucket) {
+      const sameKeyItem = bucket.find((item) => item[0] === key);
+      if (sameKeyItem) {
+        bucket.splice(bucket.indexOf(sameKeyItem), 1);
+      }
+    }
   }
 
   display() {
@@ -39,11 +65,14 @@ class HashTable {
 
 const hashT = new HashTable(50);
 
-hashT.set("name", "Ameay");
-hashT.set("age", 24);
+hashT.set("name", "ameay");
+hashT.set("mane", "sanj");
+// hashT.set("age", 24);
 
-hashT.remove("age");
-// console.log(hashT.get("name"));
-// console.log(hashT.get("age"));
+// hashT.remove("age");
+console.log(hashT.get("name"));
+console.log(hashT.get("mane"));
 
-hashT.display();
+// hashT.display();
+
+// hashT.set("mane", "Tony");
