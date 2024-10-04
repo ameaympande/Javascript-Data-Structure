@@ -153,7 +153,8 @@ class LinkList {
   }
 }
 
-const list = new LinkList();
+module.export = LinkList;
+// const list = new LinkList();
 
 // console.log("is list empty ?", list.isEmpty());
 // list.print();
@@ -161,9 +162,9 @@ const list = new LinkList();
 // list.prepend(20);
 // list.prepend(30);
 
-list.append(10);
-list.append(20);
-list.append(30);
+// list.append(10);
+// list.append(20);
+// list.append(30);
 
 // list.insert(10, 0);
 // list.print();
@@ -175,12 +176,12 @@ list.append(30);
 // list.print();
 
 // list.insert(40, 2);
-list.print();
+// list.print();
 
 // console.log(list.removeFrom(1));
 // console.log(list.removeValue(20));
 // console.log(list.search(20));
-console.log(list.reverse());
+// console.log(list.reverse());
 
 // list.print();
 

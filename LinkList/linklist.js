@@ -90,7 +90,7 @@ class LinkList {
   }
 }
 
-module.export = LinkList;
+module.exports = LinkList;
 
 // console.log("is list empty ?", list.isEmpty());
 // list.print();
